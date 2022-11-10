@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_app/logic/controllers/auth_controller.dart';
+import 'package:shop_app/view/screens/auth/forgot_password.dart';
 
 import '../../../routes/routes.dart';
 import '../../../theme.dart';
@@ -134,7 +135,10 @@ class LoginScreen extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+
+                              Get.toNamed(Routes.forgetPasswordScreen);
+                            },
                             child: TextUtils(
                                 text: "Forget Password",
                                 fointSize: 14,
