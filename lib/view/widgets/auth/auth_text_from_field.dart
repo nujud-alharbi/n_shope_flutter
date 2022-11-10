@@ -5,7 +5,7 @@ class AuthTextFormField extends StatelessWidget {
 
   final bool obscureText;
   final Widget prefixIcon;
-  final Widget suffix;
+  final Widget suffixicon;
   final String hintText;
   final Function validator;
 
@@ -15,7 +15,7 @@ class AuthTextFormField extends StatelessWidget {
     required this.obscureText,
     required this.validator,
     required this.prefixIcon,
-    required this.suffix,
+    required this.suffixicon,
     required this.hintText})
       : super(key: key);
 
@@ -32,7 +32,7 @@ class AuthTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         fillColor: Colors.grey.shade200,
         prefixIcon: prefixIcon,
-        suffix: suffix,
+        suffixIcon: suffixicon,
         hintText:hintText,
         hintStyle: const TextStyle(
           color: Colors.black45,
