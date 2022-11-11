@@ -81,7 +81,7 @@ class SignUpScreen extends StatelessWidget {
                           obscureText: false,
                           validator: (value) {
                             if (value.toString().length <= 2 ||
-                                RegExp(validationName).hasMatch(value)) {
+                                !RegExp(validationName).hasMatch(value)) {
                               return 'Enter vaild name ';
                             } else {
                               return null;
@@ -163,10 +163,39 @@ class SignUpScreen extends StatelessWidget {
                      SizedBox(
                           height: 50,
                         ),
-                        AuthButton(
-                          text: 'SIGN UP',
-                          onPressed: () {},
-                        ),
+GetBuilder<AuthController>(builder: (_){
+  return
+    AuthButton(
+      text: 'SIGN UP',
+      onPressed: ()  {
+if (controller.isCheckBox == false){
+  Get.snackbar("Check Box", "Please, Accept terms & condition"
+  ,
+    snackPosition: SnackPosition.BOTTOM,
+    backgroundColor: Colors.green,
+    colorText: Colors.white,);
+}
+else if (fromKey.currentState!.validate()){
+  String name = nameController.text.trim();
+  String email = emailController.text.trim();
+  String password = passwordController.text;
+  controller.signUpUsingFirebase(name: "name", email: email, password: password);
+
+  controller.isCheckBox = true;
+
+}
+
+
+
+
+
+      },
+    );
+
+
+
+},
+),
                       ],
                     ),
                   ),
